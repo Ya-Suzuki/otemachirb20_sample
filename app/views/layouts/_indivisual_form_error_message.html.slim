@@ -1,0 +1,8 @@
+div.grid-x.grid-padding-x
+  div.cell.auto
+    ul.no-bullet
+      - flash.each do |message_type, message|
+        - if message_type == "form_error_messages" && !message[key].nil?
+          - message[key].each do |m|
+            li style="color: red;"
+              = raw m

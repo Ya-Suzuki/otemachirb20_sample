@@ -1,0 +1,4 @@
+- flash.each do |message_type, message|
+  - if message_type != "form_error_messages"
+    = content_tag(:div, id: 'flash_message', class: "callout #{message_type}")
+      = content_tag(:p, message.html_safe)

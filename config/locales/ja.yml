@@ -5,3 +5,15 @@ ja:
         name: 氏名
         subject: 件名
         content: 内容
+      user:
+        email: メールアドレス
+      profile:
+        name: 名前
+        user_name: ユーザー名
+      address:
+        zipcode: 郵便番号
+        pref: 都道府県
+        city: 市区町村
+        street: 番地
+      active:
+        _destroy: 有効化

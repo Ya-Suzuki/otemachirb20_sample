@@ -1,0 +1,56 @@
+h1.text-center ユーザーフォーム
+div.grid-container
+  div.grid-x.grid-padding-x.align-center
+    div.cell.small-11.medium-8.large-6
+      = render 'layouts/flash_message'
+      = form_with model: @user_form, url: users_path do |f|
+        div.grid-x.grid-padding-x.align-center
+          div.cell.auto
+            = f.label :email do
+              span = t('activerecord.attributes.user.email')
+              = f.text_field :email
+        = render 'layouts/indivisual_form_error_message', key: 'email'
+        = f.fields_for :profile, ProfileForm.new do |profile|
+          div.grid-x.grid-padding-x.align-center
+            div.cell.auto
+              = profile.label :name do
+                span = t('activerecord.attributes.profile.name')
+                = profile.text_field :name
+          = render 'layouts/indivisual_form_error_message', key: 'profile.name'
+          div.grid-x.grid-padding-x.align-center
+            div.cell.auto
+              = profile.label :user_name do
+                span = t('activerecord.attributes.profile.user_name')
+                = profile.text_field :user_name
+          = render 'layouts/indivisual_form_error_message', key: 'profile.user_name'
+        = f.fields_for :address, AddressForm.new do |address|
+          div.grid-x.grid-padding-x.align-center
+            div.cell.auto
+              = address.label :zipcode do
+                span = t('activerecord.attributes.address.zipcode')
+                = address.text_field :zipcode
+          = render 'layouts/indivisual_form_error_message', key: 'address.zipcode'
+          div.grid-x.grid-padding-x.align-center
+            div.cell.auto
+              = address.label :pref do
+                span = t('activerecord.attributes.address.pref')
+                = address.text_field :pref
+          = render 'layouts/indivisual_form_error_message', key: 'address.pref'
+          div.grid-x.grid-padding-x.align-center
+            div.cell.auto
+              = address.label :city do
+                span = t('activerecord.attributes.address.city')
+                = address.text_field :city
+          = render 'layouts/indivisual_form_error_message', key: 'address.city'
+          div.grid-x.grid-padding-x.align-center
+            div.cell.auto
+              = address.label :street do
+                span = t('activerecord.attributes.address.street')
+                = address.text_field :street
+          = render 'layouts/indivisual_form_error_message', key: 'address.street'
+        = f.fields_for :active, ActiveForm.new do |active|
+          = active.check_box :_destroy, { class: 'form-check-input' }, '0', '1'
+          = active.label :_destroy, class: 'form-check-label'
+        div.grid-x.grid-padding-x.align-center
+          div.cell.auto.text-center
+            = f.submit '作成する', class: 'button'

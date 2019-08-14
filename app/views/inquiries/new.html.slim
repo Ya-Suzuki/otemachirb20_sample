@@ -7,19 +7,19 @@ div.grid-container
         div.grid-x.grid-padding-x.align-center
           div.cell.auto
             = f.label :name do
-              span = t('activerecord.attributes.inquiry_form/base.name')
+              span = t('activerecord.attributes.inquiry_form.name')
               = f.text_field :name
         = render 'layouts/indivisual_form_error_message', key: 'name'
         div.grid-x.grid-padding-x.align-center
           div.cell.auto
             = f.label :subject do
-              span = t('activerecord.attributes.inquiry_form/base.subject')
+              span = t('activerecord.attributes.inquiry_form.subject')
               = f.text_field :subject
         = render 'layouts/indivisual_form_error_message', key: 'subject'
         div.grid-x.grid-padding-x.align-center
           div.cell.auto
             = f.label :content do
-              span = t('activerecord.attributes.inquiry_form/base.content')
+              span = t('activerecord.attributes.inquiry_form.content')
               = f.text_area :content
         = render 'layouts/indivisual_form_error_message', key: 'content'
         div.grid-x.grid-padding-x.align-center

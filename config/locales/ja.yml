@@ -1,7 +1,7 @@
 ja:
   activerecord:
     attributes:
-      inquiry_form/base:
+      inquiry_form:
         name: 氏名
         subject: 件名
         content: 内容

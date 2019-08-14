@@ -1,10 +1,10 @@
 class InquiriesController < ApplicationController
   def new
-    @inquiry_form = InquiryForm::Base.new(session[:inquiry_form] || {})
+    @inquiry_form = InquiryForm.new(session[:inquiry_form] || {})
   end
 
   def create
-    @inquiry_form = InquiryForm::Base.new(inquiry_params)
+    @inquiry_form = InquiryForm.new(inquiry_params)
     session[:inquiry_form] = @inquiry_form.attributes
     if @inquiry_form.valid?
       redirect_to new_inquiry_confirmation_path
@@ -17,7 +17,7 @@ class InquiriesController < ApplicationController
   private
 
   def inquiry_params
-    params.require(:inquiry_form_base).permit(
+    params.require(:inquiry_form).permit(
       :name, :subject, :content
     )
   end
